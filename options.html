@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>书签同步到WebDAV - 设置</title>
+    <title>书签同步助手 - 设置</title>
     <style>
       body {
         font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
@@ -62,13 +62,13 @@
   </head>
   <body>
     <div class="container">
-      <h1>WebDAV 设置</h1>
+      <h1>同步设置</h1>
       <div class="form-group">
-        <label for="webdavUrl">WebDAV 服务器地址：</label>
+        <label for="webdavUrl">同步目录地址：</label>
         <input
           type="text"
           id="webdavUrl"
-          placeholder="例如：https://dav.example.com/dav/"
+          placeholder="例如：https://your-server.example.com/path/"
         />
       </div>
       <div class="form-group">
@@ -80,22 +80,22 @@
         <input type="password" id="password" />
       </div>
       <div class="form-group">
-        <label for="filename">文件名：</label>
-        <input type="text" id="filename" placeholder="bookmarks.json" />
+        <label for="filename">书签文件名：</label>
+        <input type="text" id="filename" placeholder="bookmarks.yaml" />
       </div>
       <div class="form-group">
         <label for="syncInterval">同步间隔（分钟）：</label>
         <input type="text" id="syncInterval" placeholder="60" />
       </div>
 
-      <button id="saveButton">保存设置</button>
+      <button id="saveButton">保存并应用</button>
       <button id="testButton">测试连接</button>
       <button id="syncNowButton">立即同步</button>
 
       <div id="status" class="status" style="display: none"></div>
 
       <div style="margin-top: 20px">
-        <p>上次同步时间：<span id="lastSyncTime">从未同步</span></p>
+        <p>上次同步：<span id="lastSyncTime">从未同步</span></p>
       </div>
     </div>
 

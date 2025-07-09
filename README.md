@@ -34,7 +34,7 @@
 ### 3. 同步书签
 
 - 扩展会定时自动同步，也可手动点击“立即同步”
-- 同步后，WebDAV 服务器会生成/更新 `bookmarks.yaml` 和自动补全 `settings.yaml` 的 layout 分类
+- 同步后，WebDAV 目录下会生成/更新 `bookmarks.yaml` 和自动补全 `settings.yaml` 的 layout 分类
 
 ---
 
