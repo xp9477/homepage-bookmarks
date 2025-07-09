@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>书签同步到WebDAV</title>
+    <style>
+      body {
+        font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        margin: 0;
+        padding: 15px;
+        width: 300px;
+      }
+      h1 {
+        color: #333;
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+      button {
+        background-color: #4285f4;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-right: 5px;
+      }
+      button:hover {
+        background-color: #3367d6;
+      }
+      .status {
+        margin-top: 15px;
+        padding: 8px;
+        border-radius: 4px;
+      }
+      .success {
+        background-color: #d4edda;
+        color: #155724;
+      }
+      .error {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+      .info {
+        margin-top: 15px;
+        font-size: 13px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>书签同步到WebDAV</h1>
+
+    <button id="syncNowButton">立即同步</button>
+    <button id="openOptionsButton">设置</button>
+
+    <div id="status" class="status" style="display: none"></div>
+
+    <div class="info">
+      <p>上次同步时间：<span id="lastSyncTime">从未同步</span></p>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

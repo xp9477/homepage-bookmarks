@@ -1,0 +1,49 @@
+name: Build and Release CRX
+
+on:
+  push:
+    branches:
+      - main # 或 master，根据你的主分支名
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install crx
+        run: npm install -g crx
+
+      - name: Restore private key
+        run: |
+          echo "${{ secrets.EXTENSION_PRIVATE_KEY }}" > my-extension.pem
+
+      - name: Pack extension to crx
+        run: |
+          crx pack . -p my-extension.pem -o homepage-bookmarks.crx
+
+      - name: Zip extension source
+        run: |
+          zip -r homepage-bookmarks.zip . -x "*.git*" "my-extension.pem" "homepage-bookmarks.crx"
+
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: auto-crx-${{ steps.date.outputs.date }}
+          name: 自动CRX打包 ${{ steps.date.outputs.date }}
+          files: |
+            homepage-bookmarks.crx
+            homepage-bookmarks.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
