@@ -10,8 +10,8 @@
 - 只同步“书签栏”下的所有书签和文件夹，结构清晰
 - 支持 WebDAV 服务器地址、用户名、密码、同步间隔自定义
 - 同步后自动读取并补全 Homepage 的 `settings.yaml`，将所有书签分类补充到 `layout:` 下
-- `common` 分类自动带有 Homepage 推荐的 `style: row`、`columns: 5`、`initiallyCollapsed: false`，如已存在则不覆盖
-- 其他分类自动补全 `initiallyCollapsed: true`（如已存在则不覆盖）
+- `common` 分类默认带有 `style: row`、`columns: 5`、`initiallyCollapsed: false`，如已存在则不覆盖
+- 其他分类默认补全 `initiallyCollapsed: true`，如已存在则不覆盖
 - 完全本地运行，隐私安全
 
 ---
